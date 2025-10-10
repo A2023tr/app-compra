@@ -59,5 +59,12 @@ public class ProductosServiceImple implements ProductosSerivice{
         }
     }
 
+    @Override
+    public Productos deleteProdu(String producto) {
+        Productos produ = productosRespository.findByNombre(producto);
+        productosRespository.delete(produ);
+        return produ;
+    }
+
 
 }

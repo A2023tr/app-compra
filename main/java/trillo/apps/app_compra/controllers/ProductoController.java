@@ -49,4 +49,10 @@ public class ProductoController {
         Productos productoAc = productosSerivice.updateProdu(producto);
         return ResponseEntity.ok(productoAc);
     }
+
+    @DeleteMapping("/{nombre}")
+    private ResponseEntity<?> deleteProdu(@PathVariable String nombre){
+        Productos producto = productosSerivice.deleteProdu(nombre);
+        return ResponseEntity.ok(producto);
+    }
 }

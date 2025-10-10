@@ -11,4 +11,5 @@ public interface ProductosSerivice {
     public Productos getProduName(String nombre);
     public List<Productos> getProduCar(String categoria);
     public Productos updateProdu(Productos producto);
+    public Productos deleteProdu(String producto);
 }
