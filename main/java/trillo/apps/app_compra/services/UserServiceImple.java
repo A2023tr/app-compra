@@ -31,6 +31,7 @@ public class UserServiceImple implements UserService{
             usu.setNombre(usuario.getNombre());
             usu.setUsername(usuario.getUsername());
             usu.setPassword(usuario.getPassword());
+            usu.setWallet(usuario.getWallet());
             userRepository.save(usu);
             return usu;
         }

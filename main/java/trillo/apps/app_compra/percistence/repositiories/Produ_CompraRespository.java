@@ -6,5 +6,5 @@ import trillo.apps.app_compra.percistence.entities.Produ_Compra;
 
 @Repository
 public interface Produ_CompraRespository extends JpaRepository<Produ_Compra,Integer> {
-
+     public Produ_Compra findById(int id);
 }
