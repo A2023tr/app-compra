@@ -1,5 +1,6 @@
 package trillo.apps.app_compra.services;
 
+import trillo.apps.app_compra.dto.ProductDetails;
 import trillo.apps.app_compra.percistence.entities.Productos;
 
 import java.util.List;
@@ -10,6 +11,8 @@ public interface ProductosSerivice {
     public List<Productos> getProduCant(int cantidad);
     public Productos getProduName(String nombre);
     public List<Productos> getProduCar(String categoria);
+    public List<ProductDetails> getProductByCantidad(int param1,int param2);
+    public List<ProductDetails> getProductByPrecio(Double param1,Double param2);
     public Productos updateProdu(Productos producto);
     public Productos deleteProdu(String producto);
 }

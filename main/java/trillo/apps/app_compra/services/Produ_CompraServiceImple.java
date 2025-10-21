@@ -70,7 +70,7 @@ public class Produ_CompraServiceImple implements Produ_CompraService{
             info.setUsername(usu.getUsername());
             info.setCantidad(compra.getCantidad());
             info.setNombre_pro(produ.getNombre());
-            info.setTotal_compra(compra.getTotal_compra());
+            info.setTotal_compra(Math.round(compra.getTotal_compra()));
             info.setFecha(compra.getFecha_compra());
             infos.add(info);
         }
@@ -82,5 +82,24 @@ public class Produ_CompraServiceImple implements Produ_CompraService{
         Produ_Compra compra = produCompraRespository.findById(id);
         produCompraRespository.delete(compra);
         return compra;
+    }
+
+    @Override
+    public List<Compra_Info> getCompraUsuario(String username) {
+     Usuario usu = userRepository.findByUsername(username);
+        List<Produ_Compra> compras = produCompraRespository.findByUsuario_id(usu.getId());
+        List<Compra_Info> infos = new ArrayList<>();
+        for(Produ_Compra compra: compras){
+            Compra_Info info = new Compra_Info();
+            Usuario usuario = compra.getUsuario();
+            Productos produ = compra.getProductos();
+            info.setUsername(usuario.getUsername());
+            info.setCantidad(compra.getCantidad());
+            info.setNombre_pro(produ.getNombre());
+            info.setTotal_compra(Math.round(compra.getTotal_compra()));
+            info.setFecha(compra.getFecha_compra());
+            infos.add(info);
+        }
+        return  infos;
     }
 }

@@ -11,5 +11,6 @@ public interface Produ_CompraService {
     public Produ_Compra addCompra(String username,String producto, Produ_Compra compra);
     public List<Compra_Info> getCompras();
     public Produ_Compra deleteCompra(int id);
+    public List<Compra_Info> getCompraUsuario(String username);
 
 }

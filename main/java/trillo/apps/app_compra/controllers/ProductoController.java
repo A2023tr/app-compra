@@ -1,8 +1,10 @@
 package trillo.apps.app_compra.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import trillo.apps.app_compra.dto.ProductDetails;
 import trillo.apps.app_compra.percistence.entities.Productos;
 import trillo.apps.app_compra.services.ProductosSerivice;
 
@@ -44,6 +46,20 @@ public class ProductoController {
         return ResponseEntity.ok(productosList);
     }
 
+    @GetMapping("/cantidad/{param1}/{param2}")
+    private  ResponseEntity<?> getProductByCantidad(@PathVariable("param1") int param1, @PathVariable("param2")
+                                                    int param2){
+        List<ProductDetails> productDetails = productosSerivice.getProductByCantidad(param1,param2);
+        return ResponseEntity.ok(productDetails);
+
+    }
+
+    @GetMapping("precio")
+    private ResponseEntity<?> getProductByPrecio(@RequestParam("precio1") Double pre1,
+                                                 @RequestParam("precio2") Double pre2){
+        List<ProductDetails> productDetails = productosSerivice.getProductByPrecio(pre1,pre2);
+        return ResponseEntity.ok(productDetails);
+    }
     @PutMapping
     private ResponseEntity<?> updateProdu(@RequestBody Productos producto){
         Productos productoAc = productosSerivice.updateProdu(producto);

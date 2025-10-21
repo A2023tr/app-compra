@@ -37,5 +37,12 @@ public class Produ_compraController {
         Produ_Compra compra = produCompraService.deleteCompra(id);
         return ResponseEntity.ok(compra);
     }
+
+    @GetMapping("/{username}")
+    private ResponseEntity<?> getComprasUsuario(@PathVariable String username){
+        List<Compra_Info> compraInfos = produCompraService.getCompraUsuario(username);
+        return ResponseEntity.ok(compraInfos);
+
+    }
     
 }

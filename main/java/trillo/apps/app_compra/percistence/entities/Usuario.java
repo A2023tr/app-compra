@@ -13,7 +13,9 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nombre;
+    @Column(name = "username",unique = true)
     private String username;
+    @Column(name = "password",unique = true)
     private String password;
     private Double wallet;
 }
